@@ -44,6 +44,7 @@ namespace Oqtane.Server
 
         private static void PrepareConfiguration()
         {
+#if PREPARE_CONFIG
             string config = "";
             using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "\\appsettings.json"))
             {
@@ -60,6 +61,7 @@ namespace Oqtane.Server
                     writer.WriteLine(config);
                 }
             }
+#endif
         }
     }
 }
