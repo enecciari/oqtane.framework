@@ -25,12 +25,13 @@ namespace Oqtane.Server
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        public Startup(IWebHostEnvironment env)
+        public Startup(IWebHostEnvironment env,IConfiguration configuration)
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-            Configuration = builder.Build();
+            // var builder = new ConfigurationBuilder()
+            //     .SetBasePath(env.ContentRootPath);
+            //     //.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            // Configuration = builder.Build();
+            Configuration = configuration;
 
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(env.ContentRootPath, "Data"));
         }

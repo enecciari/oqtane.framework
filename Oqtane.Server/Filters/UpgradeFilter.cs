@@ -90,7 +90,8 @@ namespace Oqtane.Filters
 
             // get initialization script and update connectionstring in Tenants seed data
             string initializationScript = "";
-            using (StreamReader reader = new StreamReader(Directory.GetCurrentDirectory() + "\\Scripts\\Initialize.sql"))
+            using (StreamReader reader = new StreamReader(
+                Path.Combine(Directory.GetCurrentDirectory() , "Scripts","Initialize.sql")))
             {
                 initializationScript = reader.ReadToEnd();
             }
